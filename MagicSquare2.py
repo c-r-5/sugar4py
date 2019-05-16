@@ -2,11 +2,14 @@ import subprocess
 import argparse
 from sugar4py import*
 
+
 file = ''
+
 
 def write(*s):
     s = create(*s)
     file.write(s + '\n')
+
 
 def encode(size):
     summ = (size * size) * (size * size + 1) // 2 // size
@@ -39,6 +42,7 @@ def encode(size):
     terms = [y[size - 1 - i] for i,y in enumerate(x)]
     write(EQ, create(ADD, *terms), create(summ))
 
+
 def result(size, vv, f):
     if vv:
         run = subprocess.Popen(['sugar', '-vv', f], stdout = subprocess.PIPE)
@@ -60,6 +64,7 @@ def result(size, vv, f):
         for a in ans:
             print(*['%2d'%t for t in a])
 
+
 def main():
     global file
     parser = argparse.ArgumentParser()
@@ -75,6 +80,7 @@ def main():
     file.close()
 
     result(size, args.vv, f)
+
 
 if __name__ == '__main__':
     main()

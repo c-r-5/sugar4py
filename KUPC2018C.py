@@ -45,13 +45,10 @@ def encode():
                 a += 1
                 b -= 1
             add(GT, create(ADD, *term), 0)
-    
-    
 
 
 def main():
     encode()
-
 
 
 if __name__ == '__main__':

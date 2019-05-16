@@ -1,6 +1,7 @@
 import sys
 from sugar4py import*
 
+
 def encode(size):
     summ = (size * size) * (size * size + 1) // 2 // size
     

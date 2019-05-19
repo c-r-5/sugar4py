@@ -30,7 +30,7 @@ def main():
     c = sqlite3.connect('saizeriya.db').cursor()
     data = c.execute('SELECT name, price, calorie FROM menu')
     # メニュー名をそのまま変数名にしたいけど括弧があるとまずいのでごり押して消す
-    data = [(re.sub('\((.*?)\)|（(.*?)）','_\\1\\2',d[0])+'_\\%s_\\%skcal'%(d[1], d[2]), d[1], d[2]) for d in data]
+    data = [(re.sub('\((.*?)\)|（(.*?)）','_\\1\\2',d[0]) + '_\\%s_\\%skcal'%(d[1], d[2]), d[1], d[2]) for d in data]
     
     # 全部のメニューでやろうとしたらSATに変換すると膨大なbyte数になって無理って怒られた
     # メニュー数30個でやってみたら4時間45分かかった
